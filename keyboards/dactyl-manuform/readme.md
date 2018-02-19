@@ -1,4 +1,4 @@
-Dactyl-ManuForm 
+Dactyl-ManuForm
 ======
 
 This is for the [Dactyl-Manuform](https://github.com/tshort/dactyl-keyboard) keyboard, a fork of the [Dactyl](https://github.com/adereth/dactyl-keyboard) keyboard that incorporates the thumb cluster of the [ManuForm](https://github.com/jeffgran/ManuForm).
@@ -13,7 +13,7 @@ based boards.
 Download or clone the whole firmware and navigate to the keyboards/dactyl-manuform directory. Once your dev env is setup, you'll be able to generate the default .hex firmware files using:
 
 ```
-$ make 
+$ make
 ```
 
 You will see a lot of output and if everything worked correctly, you will see the built hex files:
@@ -27,13 +27,13 @@ If you would like to use an alternative keymaps, copy and adjust one of the exis
 
 
 ```
-$ make YOUR_KEYMAP_NAME
+$ make dactyl-manuform:5x6-default
 ```
 
 If everything worked correctly you will see a file:
 
 ```
-dactyl-manuform-YOUR_KEYMAP_NAME.hex
+dactyl-manuform_5x6-default.hex
 ```
 
 For more information on customizing keymaps, take a look at the primary documentation for [Customizing Your Keymap](/readme.md##customizing-your-keymap) in the main readme.md.
@@ -105,8 +105,12 @@ not be very difficult to adapt it to support more if required.
 
 Flashing
 -------
-From the keymap directory run `make KEYMAP-avrdude` for automatic serial port resolution and flashing.
-Example: `make default-4x5-avrdude`
+From the `.hex` directory, run `make KEYBOARD:KEYMAP:avrdude`.
+
+run like below
+```
+sudo make dactyl-manuform:5x6-default:avrdude
+```
 
 
 Choosing which board to plug the USB cable into (choosing Master)
