@@ -138,10 +138,13 @@ uint8_t _matrix_scan(void)
     }
 
     if (debouncing) {
+        // チャタリング防止処理を行う
         if (--debouncing) {
+            // スイッチ状態変化後，一定回数は送信を待機
             _delay_ms(1);
         } else {
             for (uint8_t i = 0; i < ROWS_PER_HAND; i++) {
+                // 送信用バッファに代入
                 matrix[i+offset] = matrix_debouncing[i+offset];
             }
         }
@@ -256,12 +259,14 @@ bool matrix_is_modified(void)
     return true;
 }
 
+// qmkファームウェア本体含めて何処からも呼び出されてないコレ
 inline
 bool matrix_is_on(uint8_t row, uint8_t col)
 {
     return (matrix[row] & ((matrix_row_t)1<<col));
 }
 
+// qmkファームフェア本体がキースイッチ入力取得を行うための関数
 inline
 matrix_row_t matrix_get_row(uint8_t row)
 {
