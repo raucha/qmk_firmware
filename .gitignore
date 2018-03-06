@@ -1,7 +1,7 @@
 .dep
 *.o
 *.bin
-*.eep
+# *.eep
 *.elf
 *.hex
 *.qmk

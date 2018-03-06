@@ -142,17 +142,17 @@ file will run on both hands instead of having to flash left and right handed
 versions of the firmware to each half. To flash the EEPROM file for the left
 half run:
 ```
-avrdude -p atmega32u4 -P $(COM_PORT) -c avr109 -U eeprom:w:eeprom-lefthand.eep
+sudo avrdude -p atmega32u4 -P $COM_PORT -c avr109 -U eeprom:w:./keyboards/dactyl-manuform/eeprom-lefthand.eep
 // or the equivalent in dfu-programmer
 
 ```
 and similarly for right half
 ```
-avrdude -p atmega32u4 -P $(COM_PORT) -c avr109 -U eeprom:w:eeprom-righhand.eep
+sudo avrdude -p atmega32u4 -P $COM_PORT -c avr109 -U eeprom:w:./keyboards/dactyl-manuform/eeprom-righthand.eep
 // or the equivalent in dfu-programmer
 ```
 
-NOTE: replace `$(COM_PORT)` with the port of your device (e.g. `/dev/ttyACM0`)
+NOTE: replace `$COM_PORT` with the port of your device (e.g. `/dev/ttyACM0`)
 
 After you have flashed the EEPROM, you then need to set `EE_HANDS` in your config.h, rebuild the hex files and reflash.
 
