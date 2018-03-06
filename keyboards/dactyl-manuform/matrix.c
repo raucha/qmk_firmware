@@ -39,7 +39,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifndef DEBOUNCE
-#  define DEBOUNCE	5
+#  define DEBOUNCE	1
+// #  define DEBOUNCE	5
 #endif
 
 #define ERROR_DISCONNECT_COUNT 5
